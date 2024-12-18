@@ -1,0 +1,6 @@
+[
+  { "id": "0", "name": "HTML", "icon": "icon-html", "icon-bg-color": "old-lace" },
+  { "id": "1", "name": "CSS", "icon": "icon-css", "icon-bg-color": "light-cyan" },
+  { "id": "2", "name": "Javascript", "icon": "icon-js", "icon-bg-color": "alice-blue" },
+  { "id": "3", "name": "Accessibility", "icon": "icon-accessibility", "icon-bg-color": "magnolia" }
+]
