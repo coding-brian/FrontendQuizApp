@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { getType } from '@/apis/getTypes.js'
+import { getType } from '@/apis/get.js'
 import { onMounted, ref } from 'vue'
 const router = useRouter()
 const types = ref([])
@@ -12,7 +12,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex justify-between mt-[85px]">
-    <div class="title">
+    <div>
       <span class="heading-l-regular text-dark-navy block">Welcome to the</span>
       <span class="heading-l-regular text-dark-navy block">Frontend Quiz!</span>
       <span class="body-s text-grey-navy block mt-12">Frontend Quiz!</span>

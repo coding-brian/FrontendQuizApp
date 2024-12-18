@@ -9,14 +9,14 @@ import ToggleButton from '@/components/ToggleButton.vue'
         <div
           class="mr-[24px] w-[56px] h-[56px] flex items-center justify-center bg-magnolia rounded-[8px]"
         >
-          <img src="./assets/images/icon-accessibility.svg" alt="" />
+          <img src="/images/icon-accessibility.svg" alt="" />
         </div>
         <span class="heading-s">Accessibility</span>
       </div>
       <div class="flex gap-4 items-center">
-        <img src="./assets/images/icon-sun-dark.svg" alt="" />
+        <img src="/images/icon-sun-dark.svg" alt="" />
         <ToggleButton></ToggleButton>
-        <img src="./assets/images/icon-moon-dark.svg" alt="" srcset="" />
+        <img src="/images/icon-moon-dark.svg" alt="" srcset="" />
       </div>
     </header>
     <RouterView />
