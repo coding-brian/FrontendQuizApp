@@ -28,6 +28,9 @@ const borderColorClassByitemTypeConfig = computed(() => {
   return {
     'border-green': props.option.itemType === itemTypeConfig.pickUpCorrectly,
     'border-red': props.option.itemType === itemTypeConfig.incorrect,
+    'border-[3px]':
+      props.option.itemType === itemTypeConfig.pickUpCorrectly ||
+      props.option.itemType === itemTypeConfig.incorrect,
   }
 })
 
@@ -66,7 +69,7 @@ const imageSrcByitemTypeConfig = computed(() => {
 
 <template>
   <button
-    class="cursor-pointer flex items-center justify-between p-[20px] h-[92px] w-[564px] bg-white rounded-[24px] focus:border-purple focus:border-[3px]"
+    class="cursor-pointer flex items-center justify-between p-[20px] w-[564px] bg-white rounded-[24px] focus:border-purple focus:border-[3px]"
     :class="borderColorClassByitemTypeConfig"
     v-if="props.option"
     @click="emit('selectedAnswer', props.option.name)"

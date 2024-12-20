@@ -41,6 +41,11 @@ const getTypeIconBgClass = (type) => {
 
 onMounted(async () => {
   types.value = await getType()
+
+  if (storage.value && storage.value.subject !== null && storage.value.subject !== undefined) {
+    const type = types.value.filter((item) => item.id === storage.value.subject)[0]
+    go(type)
+  }
 })
 </script>
 

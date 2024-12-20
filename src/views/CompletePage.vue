@@ -10,7 +10,7 @@ const router = useRouter()
 
 const playAgain = () => {
   storage.value = {
-    subject: type.value.id,
+    subject: null,
     question: {
       numberOfQuestion: 0,
       count: 0,
@@ -18,7 +18,7 @@ const playAgain = () => {
     numberOfCurrectAnswer: 0,
   }
 
-  router.push({ name: 'question' })
+  router.push({ name: 'home' })
 }
 
 onMounted(async () => {

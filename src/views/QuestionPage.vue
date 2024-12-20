@@ -5,9 +5,10 @@ import { getQuestionByTypeId } from '@/apis/get.js'
 import { assignToReactive } from '@/composable/assignToReactive.js'
 import itemTypeConfig from '@/constant/itemType.json'
 import { useStorage } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 
 const storage = useStorage('data', {})
-
+const router = useRouter()
 const quesions = ref([])
 const question = reactive({
   question: '',
@@ -21,8 +22,12 @@ const isError = ref(false)
 
 const nextQuestion = () => {
   setTimeout(() => {
-    storage.value.question.numberOfQuestion++
-    assignToReactive(quesions.value[storage.value.question.numberOfQuestion], question)
+    if (storage.value.question.numberOfQuestion + 1 === quesions.value.length) {
+      router.push({ name: 'completion' })
+    } else {
+      storage.value.question.numberOfQuestion++
+      assignToReactive(quesions.value[storage.value.question.numberOfQuestion], question)
+    }
   }, 500)
 }
 
@@ -33,9 +38,11 @@ const submit = () => {
   }
   isError.value = false
   const option = question.options.filter((item) => item.selected)[0]
+
   if (question.answer === option.name) {
     const option = question.options.filter((item) => item.name === question.answer)[0]
     option.itemType = itemTypeConfig.pickUpCorrectly
+    storage.value.numberOfCurrectAnswer++
   }
 
   if (question.answer !== option.name) {
