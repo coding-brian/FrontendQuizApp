@@ -2,8 +2,42 @@
 import { useRouter } from 'vue-router'
 import { getType } from '@/apis/get.js'
 import { onMounted, ref } from 'vue'
+import { useStorage } from '@vueuse/core'
+
 const router = useRouter()
 const types = ref([])
+const selectedType = ref(null)
+const storage = useStorage('data', {
+  subject: null,
+  question: {
+    numberOfQuestion: 0,
+    count: 0,
+  },
+  numberOfCurrectAnswer: 0,
+})
+
+const go = (type) => {
+  if (storage.value.subject !== type.id) {
+    storage.value.question.numberOfQuestion = 0
+    storage.value.numberOfCurrectAnswer = 0
+  }
+  storage.value.subject = type.id
+  selectedType.value = type
+  router.push({ name: 'question' })
+}
+
+const getTypeIconBgClass = (type) => {
+  switch (type.iconBgColor) {
+    case 'old-lace':
+      return 'bg-old-lace'
+    case 'light-cyan':
+      return 'bg-light-cyan'
+    case 'alice-blue':
+      return 'bg-alice-blue'
+    case 'magnolia':
+      return 'bg-magnolia'
+  }
+}
 
 onMounted(async () => {
   types.value = await getType()
@@ -22,11 +56,11 @@ onMounted(async () => {
         v-for="type in types"
         :key="type.id"
         class="cursor-pointer flex items-center p-[20px] bg-white rounded-[24px] w-[564px] h-[96px]"
-        @click="router.push({ name: 'question', params: { subject: type.id } })"
+        @click="go(type)"
       >
         <div
           class="w-[56px] h-[56px] flex items-center justify-center rounded-[8px] mr-8"
-          :class="['bg-' + type['icon-bg-color']]"
+          :class="getTypeIconBgClass(type)"
         >
           <img :src="'/images/' + type.icon + '.svg'" alt="" />
         </div>

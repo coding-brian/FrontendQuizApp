@@ -25,10 +25,10 @@
   }
 
   .body-m {
-    @apply font-normal text-[12px]/[150%];
+    @apply font-normal text-[24px]/[150%];
   }
 
   .body-s {
-    @apply font-normal text-[12px]/[150%] italic;
+    @apply font-normal text-[20px]/[150%] italic;
   }
 }

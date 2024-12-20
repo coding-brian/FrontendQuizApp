@@ -9,9 +9,14 @@ const router = createRouter({
       component: () => import('@/views/IndexPage.vue'),
     },
     {
-      path: '/question/:subject',
+      path: '/question',
       name: 'question',
       component: () => import('@/views/QuestionPage.vue'),
+    },
+    {
+      path: '/completion',
+      name: 'completion',
+      component: () => import('@/views/CompletePage.vue'),
     },
   ],
 })

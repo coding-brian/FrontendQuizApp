@@ -8,20 +8,44 @@
         {
           "question": "What does HTML stand for?",
           "options": [
-            "Hyper Trainer Marking Language",
-            "Hyper Text Marketing Language",
-            "Hyper Text Markup Language",
-            "Hyper Text Markup Leveler"
+            {
+              "name": "Hyper Trainer Marking Language",
+              "selected": false
+            },
+            {
+              "name": "Hyper Text Marketing Language",
+              "selected": false
+            },
+            {
+              "name": "Hyper Text Markup Language",
+              "selected": false
+            },
+            {
+              "name": "Hyper Text Markup Leveler",
+              "selected": false
+            }
           ],
           "answer": "Hyper Text Markup Language"
         },
         {
           "question": "Which of the following is the correct structure for an HTML document?",
           "options": [
-            "<html><head></head><body></body></html>",
-            "<head><html></html><body></body></head>",
-            "<body><head></head><html></html></body>",
-            "<html><body></body><head></head></html>"
+            {
+              "name": "<html><head></head><body></body></html>",
+              "selected": false
+            },
+            {
+              "name": "<head><html></html><body></body></head>",
+              "selected": false
+            },
+            {
+              "name": "<body><head></head><html></html></body>",
+              "selected": false
+            },
+            {
+              "name": "<html><body></body><head></head></html>",
+              "selected": false
+            }
           ],
           "answer": "<html><head></head><body></body></html>"
         },
