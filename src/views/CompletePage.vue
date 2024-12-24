@@ -25,15 +25,16 @@ onMounted(async () => {
   type.value = await getTypeById(storage.value.subject)
 })
 </script>
+
 <template>
-  <div class="flex justify-between mt-[85px]">
+  <div class="lg:flex lg:flex-row lg:justify-between md:flex md:flex-col md:gap-[64px] mt-[85px]">
     <div>
-      <span class="heading-l-regular text-dark-navy block">Quiz completed</span>
-      <span class="heading-l-bold text-dark-navy block">You scored...</span>
+      <span class="heading-l-regular text-dark-navy block dark:text-white">Quiz completed</span>
+      <span class="heading-l-bold text-dark-navy block dark:text-white">You scored...</span>
     </div>
-    <div class="w-[564px]">
+    <div class="lg:w-[564px] md:w-full">
       <div
-        class="flex flex-col items-center justify-between w-full bg-white p-12 rounded-[24px] mb-[32px]"
+        class="flex flex-col items-center justify-between w-full bg-white p-12 rounded-[24px] mb-[32px] dark:bg-navy"
         v-if="type"
       >
         <div class="flex items-center justify-center mb-[40px]">
@@ -43,10 +44,12 @@ onMounted(async () => {
           >
             <img :src="'/images/' + type.icon + '.svg'" alt="" />
           </div>
-          <span class="heading-s">{{ type.name }}</span>
+          <span class="heading-s dark:text-white">{{ type.name }}</span>
         </div>
         <div class="flex flex-col justify-between">
-          <span class="text-dark-navy display">{{ storage.numberOfCurrectAnswer }}</span>
+          <span class="text-dark-navy display dark:text-white">{{
+            storage.numberOfCurrectAnswer
+          }}</span>
           <span class="text-grey-navy body-m">out of {{ storage.question.count }}</span>
         </div>
       </div>

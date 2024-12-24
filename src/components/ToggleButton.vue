@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
 <template>
   <label class="toggle relative w-12 h-7 inline-block">
-    <input class="hidden" type="checkbox" />
+    <input class="hidden" type="checkbox" @click="toggleDark()" />
     <span class="slider bg-purple w-full h-full absolute cursor-pointer rounded-[50px]"></span>
   </label>
 </template>

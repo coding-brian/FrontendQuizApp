@@ -50,17 +50,21 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex justify-between mt-[85px]">
+  <div
+    class="lg:flex lg:flex-row lg:justify-between lg:mt-[85px] md:mt-[64px] md:flex md:flex-col md:justify-center"
+  >
     <div>
-      <span class="heading-l-regular text-dark-navy block">Welcome to the</span>
-      <span class="heading-l-regular text-dark-navy block">Frontend Quiz!</span>
-      <span class="body-s text-grey-navy block mt-12">Frontend Quiz!</span>
+      <span class="heading-l-regular text-dark-navy block dark:text-white">Welcome to the</span>
+      <span class="heading-l-regular text-dark-navy block dark:text-white">Frontend Quiz!</span>
+      <span class="body-s text-grey-navy block lg:mt-12 dark:text-light-bluish"
+        >Pick a subject to get started.</span
+      >
     </div>
-    <ul class="list-none gap-[24px] flex flex-col">
+    <ul class="list-none gap-[24px] flex flex-col md:mt-[64px]">
       <li
         v-for="type in types"
         :key="type.id"
-        class="cursor-pointer flex items-center p-[20px] bg-white rounded-[24px] w-[564px] h-[96px]"
+        class="cursor-pointer flex items-center p-[20px] bg-white rounded-[24px] w-[564px] h-[96px] dark:bg-navy"
         @click="go(type)"
       >
         <div
@@ -69,7 +73,7 @@ onMounted(async () => {
         >
           <img :src="'/images/' + type.icon + '.svg'" alt="" />
         </div>
-        <span class="heading-s">{{ type.name }}</span>
+        <span class="heading-s dark:text-white">{{ type.name }}</span>
       </li>
     </ul>
   </div>

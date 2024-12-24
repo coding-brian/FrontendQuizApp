@@ -69,7 +69,7 @@ const imageSrcByitemTypeConfig = computed(() => {
 
 <template>
   <button
-    class="cursor-pointer flex items-center justify-between p-[20px] w-[564px] bg-white rounded-[24px] focus:border-purple focus:border-[3px]"
+    class="cursor-pointer flex items-center justify-between p-[20px] bg-white rounded-[24px] focus:border-purple focus:border-[3px] dark:bg-navy md:w-full lg:w-[564px]"
     :class="borderColorClassByitemTypeConfig"
     v-if="props.option"
     @click="emit('selectedAnswer', props.option.name)"
@@ -83,7 +83,7 @@ const imageSrcByitemTypeConfig = computed(() => {
           optionIcon
         }}</span>
       </div>
-      <span class="heading-s text-dark-navy">{{ props.option.name }}</span>
+      <span class="heading-s text-dark-navy dark:text-white">{{ props.option.name }}</span>
     </div>
     <img :src="imageSrcByitemTypeConfig" alt="" srcset="" />
   </button>

@@ -85,17 +85,24 @@ watchEffect(() => {
   }
 })
 </script>
+
 <template>
   <template v-if="question && question.question">
-    <div class="flex justify-between mt-[85px]">
-      <div class="flex flex-col justify-between">
-        <div class="w-[465px]">
-          <span class="text-grey-navy body-s block mb-[27px]"
+    <div
+      class="lg:flex lg:justify-between lg:flex-row lg:mt-[85px] md:mt-[49px] md:gap-16 md:flex md:flex-col"
+    >
+      <div class="lg:flex lg:flex-col lg:justify-between">
+        <div class="w-[465px] md:max-w-full">
+          <span class="text-grey-navy body-s block mb-[27px] dark:text-light-bluish"
             >Question {{ storage.question.numberOfQuestion + 1 }} of {{ quesions.length }}</span
           >
-          <span class="text-dark-navy heading-m block">{{ question.question }}</span>
+          <span class="text-dark-navy heading-m block dark:text-white">{{
+            question.question
+          }}</span>
         </div>
-        <div class="bg-white w-full rounded-[999px] py-[4px] pl-[4px] h-[16px]">
+        <div
+          class="bg-white w-full rounded-[999px] py-[4px] pl-[4px] h-[16px] dark:bg-navy md:mt-[40px]"
+        >
           <div class="bg-purple rounded-[104px] h-[8px]" ref="progress"></div>
         </div>
       </div>
@@ -113,15 +120,15 @@ watchEffect(() => {
         ></ItemButton>
       </ul>
     </div>
-    <div class="w-full flex justify-end my-[32px] hover:curser-pointer">
+    <div class="w-full flex lg:justify-end my-[32px] hover:curser-pointer">
       <button
-        class="w-[564px] h-[96px] bg-purple rounded-[24px] hover:bg-opacity-50"
+        class="lg:w-[564px] h-[96px] bg-purple rounded-[24px] lg:hover:bg-opacity-50 md:w-full md:active:bg-opacity-50"
         @click="submit"
       >
         <span class="text-white heading-s">Submit Answer</span>
       </button>
     </div>
-    <div class="w-full flex justify-end hover:curser-pointer" v-if="isError">
+    <div class="w-full flex lg:justify-end md:justify-center hover:curser-pointer" v-if="isError">
       <div class="w-[564px] flex justify-center items-center">
         <img src="/images/icon-incorrect.svg" alt="" srcset="" />
         <span class="body-m text-red">Please select an answer</span>

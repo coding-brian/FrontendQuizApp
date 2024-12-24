@@ -1,14 +1,36 @@
 <script setup>
 import { useStorage } from '@vueuse/core'
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { getTypeById } from '@/apis/get.js'
 import ToggleButton from '@/components/ToggleButton.vue'
 import { useRoute } from 'vue-router'
+import { useDark } from '@vueuse/core'
 
+const isDark = useDark()
 const storage = useStorage('data', {})
-
 const type = ref(null)
 const route = useRoute()
+
+const toggleImages = computed(() => {
+  let result = {
+    light: '/images/icon-sun-dark.svg',
+    dark: '/images/icon-moon-dark.svg',
+  }
+
+  if (isDark.value) {
+    result = {
+      light: '/images/icon-sun-light.svg',
+      dark: '/images/icon-moon-light.svg',
+    }
+  } else {
+    result = {
+      light: '/images/icon-sun-dark.svg',
+      dark: '/images/icon-moon-dark.svg',
+    }
+  }
+
+  return result
+})
 
 const getTypeIconBgClass = (type) => {
   switch (type.iconBgColor) {
@@ -55,7 +77,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="w-[1160px]">
+  <main class="lg:w-[1160px] md:w-[640px]">
     <header
       class="flex items-center mt-[83px]"
       :class="{
@@ -70,12 +92,12 @@ onMounted(async () => {
         >
           <img :src="'/images/' + type.icon + '.svg'" alt="" />
         </div>
-        <span class="heading-s">{{ type.name }}</span>
+        <span class="heading-s dark:text-white">{{ type.name }}</span>
       </div>
       <div class="flex gap-4 items-center">
-        <img src="/images/icon-sun-dark.svg" alt="" />
+        <img :src="toggleImages.light" alt="" />
         <ToggleButton></ToggleButton>
-        <img src="/images/icon-moon-dark.svg" alt="" srcset="" />
+        <img :src="toggleImages.dark" alt="" srcset="" />
       </div>
     </header>
     <RouterView />
