@@ -51,14 +51,15 @@ onMounted(async () => {
 
 <template>
   <div
-    class="lg:flex lg:flex-row lg:justify-between lg:items-start lg:mt-[85px] md:mt-[64px] md:flex md:flex-col md:justify-center mt-8 flex flex-col gap-[40px] items-center"
+    class="lg:flex lg:flex-row lg:justify-between lg:items-start lg:mt-[85px] md:mt-[64px] md:flex md:flex-col md:justify-center md:items-start mt-8 flex flex-col gap-[40px] items-center"
   >
     <div>
-      <span class="lg:heading-l-regular text-dark-navy block dark:text-white text-[40px] font-light"
+      <span
+        class="heading-l-regular text-[40px] font-light text-dark-navy block dark:text-white lg:heading-l-regular md:heading-l-regular"
         >Welcome to the</span
       >
       <span
-        class="lg:heading-l-regular text-dark-navy block dark:text-white text-[40px] font-medium mt-[8px]"
+        class="heading-l-bold text-[40px] font-medium mt-[8px] lg:heading-l-bold md:heading-l-bold text-dark-navy block dark:text-white"
         >Frontend Quiz!</span
       >
       <span class="body-s text-grey-navy block lg:mt-12 dark:text-light-bluish text-[14px] mt-4"

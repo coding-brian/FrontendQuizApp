@@ -79,7 +79,7 @@ onMounted(async () => {
 <template>
   <main class="lg:w-[1160px] md:w-[640px] w-[375px]">
     <header
-      class="flex items-center lg:mt-[83px] md:mt-[54px] my-4 mx-[24px]"
+      class="flex items-center lg:mt-[83px] my-4 mx-[24px] md:mt-[54px] md:mx-0"
       :class="{
         'justify-between': type !== null && type !== undefined,
         'justify-end': !type,
