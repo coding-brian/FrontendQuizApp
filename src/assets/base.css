@@ -13,5 +13,5 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  @apply bg-light-grey bg-desktop-light dark:bg-dark-navy;
+  @apply bg-no-repeat bg-light-grey dark:bg-dark-navy bg-mobile-light dark:bg-mobile-dark md:bg-tablet-light md:dark:bg-tablet-dark lg:bg-desktop-light  lg:dark:bg-desktop-dark lg:bg-cover;
 }
