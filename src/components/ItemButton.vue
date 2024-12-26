@@ -69,21 +69,26 @@ const imageSrcByitemTypeConfig = computed(() => {
 
 <template>
   <button
-    class="cursor-pointer flex items-center justify-between p-[20px] bg-white rounded-[24px] focus:border-purple focus:border-[3px] dark:bg-navy md:w-full lg:w-[564px]"
+    class="cursor-pointer flex items-center justify-between bg-white rounded-[24px] focus:border-purple focus:border-[3px] dark:bg-navy w-full p-[12px] lg:w-[564px] lg:p-[20px] md:w-full"
     :class="borderColorClassByitemTypeConfig"
     v-if="props.option"
     @click="emit('selectedAnswer', props.option.name)"
   >
     <div class="flex items-center rounded-[8px]">
       <div
-        class="w-[56px] h-[56px] flex justify-center items-center rounded-[8px] mr-8"
+        class="flex justify-center items-center shrink-0 rounded-[8px] w-[40px] h-[40px] mr-4 lg:mr-8 lg:w-[56px] lg:h-[56px] md:mr-8"
         :class="[bgColorClassByitemTypeConfig]"
       >
-        <span class="heading-s text-grey-navy" :class="textColorClassByitemTypeConfig">{{
-          optionIcon
-        }}</span>
+        <span
+          class="text-grey-navy heading-s text-[18px] lg:heading-s md:heading-s"
+          :class="textColorClassByitemTypeConfig"
+          >{{ optionIcon }}</span
+        >
       </div>
-      <span class="heading-s text-dark-navy dark:text-white">{{ props.option.name }}</span>
+      <span
+        class="heading-s text-[18px] lg:heading-s md:heading-s text-dark-navy dark:text-white"
+        >{{ props.option.name }}</span
+      >
     </div>
     <img :src="imageSrcByitemTypeConfig" alt="" srcset="" />
   </button>

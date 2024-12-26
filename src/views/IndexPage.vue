@@ -51,29 +51,40 @@ onMounted(async () => {
 
 <template>
   <div
-    class="lg:flex lg:flex-row lg:justify-between lg:mt-[85px] md:mt-[64px] md:flex md:flex-col md:justify-center"
+    class="lg:flex lg:flex-row lg:justify-between lg:items-start lg:mt-[85px] md:mt-[64px] md:flex md:flex-col md:justify-center mt-8 flex flex-col gap-[40px] items-center"
   >
     <div>
-      <span class="heading-l-regular text-dark-navy block dark:text-white">Welcome to the</span>
-      <span class="heading-l-regular text-dark-navy block dark:text-white">Frontend Quiz!</span>
-      <span class="body-s text-grey-navy block lg:mt-12 dark:text-light-bluish"
+      <span class="lg:heading-l-regular text-dark-navy block dark:text-white text-[40px] font-light"
+        >Welcome to the</span
+      >
+      <span
+        class="lg:heading-l-regular text-dark-navy block dark:text-white text-[40px] font-medium mt-[8px]"
+        >Frontend Quiz!</span
+      >
+      <span class="body-s text-grey-navy block lg:mt-12 dark:text-light-bluish text-[14px] mt-4"
         >Pick a subject to get started.</span
       >
     </div>
-    <ul class="list-none gap-[24px] flex flex-col md:mt-[64px]">
+    <ul class="flex flex-col list-none gap-[12px] lg:gap-[24px] lg:mt-0 md:gap-[24px] md:mt-[64px]">
       <li
         v-for="type in types"
         :key="type.id"
-        class="cursor-pointer flex items-center p-[20px] bg-white rounded-[24px] w-[564px] h-[96px] dark:bg-navy"
+        class="w-[327px] h-[64px] cursor-pointer flex items-center p-[20px] bg-white rounded-[24px] lg:w-[564px] lg:h-[96px] md:w-[640px] md:h-[80px] dark:bg-navy"
         @click="go(type)"
       >
         <div
-          class="w-[56px] h-[56px] flex items-center justify-center rounded-[8px] mr-8"
+          class="flex items-center justify-center rounded-[8px] w-[40px] h-[40px] mr-4 lg:w-[56px] lg:h-[56px] lg:mr-8 md:w-[56px] md:h-[56px] md:mr-8"
           :class="getTypeIconBgClass(type)"
         >
-          <img :src="'/images/' + type.icon + '.svg'" alt="" />
+          <img
+            class="w-[28px] h-[28px] lg:w-auto lg:h-auto md:w-auto md:h-auto"
+            :src="'/images/' + type.icon + '.svg'"
+            alt=""
+          />
         </div>
-        <span class="heading-s dark:text-white">{{ type.name }}</span>
+        <span class="dark:text-white heading-s text-[18px] lg:heading-s md:heading-s">{{
+          type.name
+        }}</span>
       </li>
     </ul>
   </div>

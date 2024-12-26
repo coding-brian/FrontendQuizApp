@@ -89,16 +89,18 @@ watchEffect(() => {
 <template>
   <template v-if="question && question.question">
     <div
-      class="lg:flex lg:justify-between lg:flex-row lg:mt-[85px] md:mt-[49px] md:gap-16 md:flex md:flex-col"
+      class="flex flex-col gap-[40px] mt-8 mx-[32px] lg:flex lg:flex-row lg:justify-between lg:gap-0 lg:mt-[85px] lg:mx-0 md:flex md:flex-col md:gap-[40px] md:mt-[49px] md:mx-0"
     >
-      <div class="lg:flex lg:flex-col lg:justify-between">
-        <div class="w-[465px] md:max-w-full">
-          <span class="text-grey-navy body-s block mb-[27px] dark:text-light-bluish"
+      <div class="flex flex-col gap-[32px] lg:flex lg:flex-col lg:justify-between lg:gap-0">
+        <div class="max-w-full lg:w-[465px] md:max-w-full">
+          <span
+            class="text-grey-navy block dark:text-light-bluish body-s text-[14px] italic mb-[12px] lg:body-s lg:mb-[27px] md:body-s md:mb-[27px]"
             >Question {{ storage.question.numberOfQuestion + 1 }} of {{ quesions.length }}</span
           >
-          <span class="text-dark-navy heading-m block dark:text-white">{{
-            question.question
-          }}</span>
+          <span
+            class="text-dark-navy block dark:text-white heading-m text-[20px] lg:heading-m md:heading-m"
+            >{{ question.question }}</span
+          >
         </div>
         <div
           class="bg-white w-full rounded-[999px] py-[4px] pl-[4px] h-[16px] dark:bg-navy md:mt-[40px]"
@@ -120,12 +122,16 @@ watchEffect(() => {
         ></ItemButton>
       </ul>
     </div>
-    <div class="w-full flex lg:justify-end my-[32px] hover:curser-pointer">
+    <div
+      class="flex mt-[12px] w-[327px] mx-[32px] hover:curser-pointer lg:my-[32px] lg:w-full lg:justify-end lg:mx-0 md:my-[32px] md:w-full md:mx-0"
+    >
       <button
-        class="lg:w-[564px] h-[96px] bg-purple rounded-[24px] lg:hover:bg-opacity-50 md:w-full md:active:bg-opacity-50"
+        class="w-full h-[56px] bg-purple rounded-[24px] lg:hover:bg-opacity-50 lg:w-[564px] lg:h-[96px] md:h-[96px] md:w-full md:active:bg-opacity-50"
         @click="submit"
       >
-        <span class="text-white heading-s">Submit Answer</span>
+        <span class="text-white heading-s text-[18px] lg:heading-s md:heading-s"
+          >Submit Answer</span
+        >
       </button>
     </div>
     <div class="w-full flex lg:justify-end md:justify-center hover:curser-pointer" v-if="isError">

@@ -77,9 +77,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="lg:w-[1160px] md:w-[640px]">
+  <main class="lg:w-[1160px] md:w-[640px] w-[375px]">
     <header
-      class="flex items-center mt-[83px]"
+      class="flex items-center lg:mt-[83px] md:mt-[54px] my-4 mx-[24px]"
       :class="{
         'justify-between': type !== null && type !== undefined,
         'justify-end': !type,
@@ -87,12 +87,18 @@ onMounted(async () => {
     >
       <div class="flex items-center" v-if="type">
         <div
-          class="mr-[24px] w-[56px] h-[56px] flex items-center justify-center rounded-[8px]"
+          class="flex items-center justify-center w-[40px] h-[40px] mr-4 rounded-[4px] lg:w-[56px] lg:h-[56px] lg:mr-[24px] lg:rounded-[8px] md:w-[56px] md:h-[56px] md:mr-[24px] md:rounded-[8px]"
           :class="getTypeIconBgClass(type)"
         >
-          <img :src="'/images/' + type.icon + '.svg'" alt="" />
+          <img
+            class="w-[28px] h-[28px] lg:w-auto lg:h-auto md:w-auto md:h-auto"
+            :src="'/images/' + type.icon + '.svg'"
+            alt=""
+          />
         </div>
-        <span class="heading-s dark:text-white">{{ type.name }}</span>
+        <span class="heading-s text-[18px] dark:text-white lg:heading-s md:heading-s">{{
+          type.name
+        }}</span>
       </div>
       <div class="flex gap-4 items-center">
         <img :src="toggleImages.light" alt="" />
